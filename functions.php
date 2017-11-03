@@ -113,7 +113,7 @@ function portfolios_post_type() {
 		'label'                 => __( 'Portfolio', 'text_domain' ),
 		'description'           => __( 'Portfolio information pages.', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', ),
+		'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields'),
 		'taxonomies'            => array( 'color', 'type',''),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -218,3 +218,18 @@ function portfolio_type_taxonomy() {
 
 }
 add_action( 'init', 'portfolio_type_taxonomy', 0 );
+
+function marble_custom_meta($post_id){
+    if ($_GET['post_type'] == 'portfolios'){
+    //Enable to save dynamically a new metadata linked to a post
+    add_post_meta($post_id,'annee','2017',true);
+    //add post_meta uses various parameters
+    //1- Post id
+    //2 - Meta name to save
+    //3 - Meta value
+    //4 -
+    }
+}
+add_action('wp_insert_post','marble_custom_meta');
+
+?>

@@ -30,6 +30,9 @@
 							<?php the_content(); ?>
 						</div>
 
+						<p><?php echo get_post_meta(get_the_ID(), 'annee',true); ?></p>
+						<p><?php the_field('portfolio_annee'); ?></p>
+
 					<?php endwhile; ?>
 					<?php else : ?>
 						<p>Aucun contenu a afficher</p>
